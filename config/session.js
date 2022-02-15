@@ -1,6 +1,3 @@
-// GESTIÓN DE SESIÓN
-// CONFIGURACIÓN Y EL TIEMPO DE EXPIRACIÓN DE LA SESIÓN
-
 // 1. IMPORTACIONES
 
 const session		= require("express-session")

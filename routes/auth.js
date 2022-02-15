@@ -3,7 +3,6 @@ const express		= require("express")
 const router		= express.Router()
 
 const authController		= require("./../controllers/authController")
-
 const routeGuard			= require("./../middlewares/route-guard")
 
 // 2. ROUTER
@@ -23,8 +22,9 @@ router.post("/login",routeGuard.authAreas, authController.loginForm)
 // C1. SIGNOUT - CERRAR SESIÓN
 router.get("/logout", authController.logout)
 
+// D1. BEAUTYSHOP
 
-
+router.get
 
 
 // 3. EXPORTACIÓN

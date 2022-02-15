@@ -1,5 +1,3 @@
-// ./index.js
-
 // 1. IMPORTACIONES
 
 const express		= require("express")
@@ -37,7 +35,7 @@ app.use((req, res, next) => {
 })
 
 
-app.use("/", require("./routes/main"))
+app.use("/", require("./routes/index"))
 app.use("/auth", require("./routes/auth"))
 
 

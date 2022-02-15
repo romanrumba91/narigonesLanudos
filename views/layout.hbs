@@ -1,45 +1,89 @@
+{{!-- ./views/layout.hbs --}}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="stylesheet/styles.css">
-    <title>NarigonesYLanudos</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/stylesheet/styles.css">
+
+  <title>Aplicación Ironhack</title>
 </head>
+
 <body>
     <div class="menu-bar">
 
         <ul>
-            <li <i class="bi-house-door-fill"></i><a href="/">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a>
-                <div class="sub-menu-1">
-                    <ul>
-                    <li><a href="#">Beauty Shop</a></li>
-                    <li><a href="#">Photo Studio</a></li>
-                    <li><a href="#">Hotel</a></li>
-                    <li><a href="#">DayCare</a></li>
-                    </ul>
+            <img class ="imageLogo" src ="images/logo_N&L2.png ">
+            <div class ="hover:bg-black">
+                <li <i class="bi-house-door-fill"></i><a href="/">Home</a></li>
+            </div>
+            <div class ="hover:bg-black">
+                <li><a href="#">About us</a></li>
+            </div>
+                <div class ="hover:bg-black">
+                    <li><a href="#">Services</a>
+                
+                    <div class="sub-menu-1">
+                        <ul>
+                        <li><a href="/services/beautyShop">Beauty Shop</a></li>
+                        <li><a href="#">Photo Studio</a></li>
+                        <li><a href="#">Hotel</a></li>
+                        <li><a href="#">DayCare</a></li>
+                        </ul>
+                    </div>
+                    </li>
                 </div>
-            </li>
-            <li><a href="#">Location</a></li>
-            <br>
-            <li><a href="#"><i class="bi bi-person-fill"></i>Account</a>
-                <div class="sub-menu-1">
-                    <ul>
-                    <li><a href="/auth/register">Sign up</a></li>
-                    <li><a href="/auth/login">Log in</a></li>
-                    </ul>
+                <div class ="hover:bg-black">
+                    <li><a href="#">Location</a></li>
                 </div>
-            </li>
+
+                {{#if currentUser}}
+                <span class="textUsuario">
+                    Hola {{ currentUser.username }}
+                </span>
+
+                
+
+                <div class ="hover:bg-black">
+                    <li><a href="#"><i class="bi bi-person-fill"></i>Account</a>
+                        <div class="sub-menu-1">
+                            <ul>
+                            <li><a href="/auth/logout">Log out</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </div>
+
+                        {{!-- class="textCerrarSesion">Cerrar Sesion --}}
+
+                </a>
+
+                {{else}}
+
+                <div class ="hover:bg-black">
+                    <li><a href="#"><i class="bi bi-person-fill"></i>Account</a>
+                        <div class="sub-menu-1">
+                            <ul>
+                            <li><a href="/auth/register">Sign up</a></li>
+                            <li><a href="/auth/login">Log in</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </div>
+
+                {{/if}}
 
         </ul>
     </div>
 
-    {{{ body }}}
-  
+  {{{ body }}}
+
 </body>
+
 </html>

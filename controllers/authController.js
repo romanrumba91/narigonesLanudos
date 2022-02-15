@@ -2,7 +2,7 @@
 const bcryptjs		= require("bcryptjs")
 const mongoose		= require("mongoose")
 
-const User			= require("./../models/UserInfo")
+const User			= require("./../models/User")
 
 exports.register = (req, res) => {
 
@@ -60,9 +60,9 @@ exports.registerForm = async (req, res) => {
 
 	} catch (error) {
 		
-		console.log(error)
+		// console.log(error)
 
-		console.log(error.errors)
+		// console.log(error.errors)
 
 		// CONFIRMAR SI EL ERROR VIENE DE BASE DE DATOS
 		if (error instanceof mongoose.Error.ValidationError){
@@ -150,3 +150,7 @@ exports.logout = async (req, res) => {
 	})
 
 }
+
+
+
+
