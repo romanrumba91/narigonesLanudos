@@ -7,6 +7,7 @@ const Estetica			= require("./../models/Estetica")
 const Photo			= require("./../models/Photo")
 const Hotel			= require("./../models/Hotel")
 const UserData		= require("./../models/UserData")
+const NewOrders		= require("./../models/NewOrders")
 
 
 exports.register = (req, res) => {
@@ -218,7 +219,7 @@ exports.getHotel = async (req, res) => {
 exports.createUser = async (req, res) => {
 
 	return res.render("profile/dataProfileP",{
-		data
+		
 	})
 
 }
@@ -243,6 +244,55 @@ exports.createUserForm = async (req, res) => {
 
 }
 
+exports.getDetails = async (req, res) => {
 
 
+		// req.params === { roomID: "65as4df56as4d" }
+		const { userID } = req.params
+
+		console.log(userID)
+		console.log(typeof userID)
+
+		const singleUser = await UserData.findById(userID)
+		console.log(singleUser)
+
+		return res.render("profile/dataSaved", {
+			singleUser
+		})
+
+
+}
+
+exports.createOrder = async (req, res) => {
+
+    res.render("profile/newOrder")
+
+}
+
+exports.createOrderForm = async (req, res) => {
+
+	const id = currentUser._id
+	// 1. VERIFICAR QUE LOS DATOS DEL FORMULARIO LLEGUEN AL SERVIDOR
+	const { breed, ownerName, dogYears  } = req.body;
+
+	// const title = req.body.title
+	
+	// 2. CREAR EL DOCUMENTO EN BASE DE DATOS
+
+        //await Book.create({ title, description, author, rating })
+	await NewOrders.findByIdAndUpdate(
+		id,{ breed, ownerName, dogYears  },
+			{new:true}
+
+	)
+        return res.redirect("/profile")
+
+
+}
+
+exports.getAllOrders = async (req, res) => {
+	const {id}=req.params
+	const allOrders = await NewOrders.find(id)
+	res.render('profile/allOrders',{allOrders})
+}
 

@@ -39,6 +39,16 @@ router.get("/dataProfileP", authController.createUser)
 // ENVIAR DATOS DE FORMULARIO PARA CREAR LIBRO EN BD post SOLO PARA FORMULARIOS
 router.post("/dataProfileP", authController.createUserForm)
 
+router.get("/dataProfileP/:userID", authController.getDetails)
+
+// NEW ORDERS
+router.get("/:id/newOrder", authController.createOrder)
+
+router.post("/:id/newOrder", authController.createOrderForm)
+//GET ALL ORDERS
+router.get("/orders",authController.getAllOrders)
+
+
 
 
 
