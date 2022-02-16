@@ -24,7 +24,23 @@ router.get("/logout", authController.logout)
 
 // D1. BEAUTYSHOP
 
-router.get
+router.get("/beautyShop", authController.getEstetica)
+
+// E1. PHOTO
+
+router.get("/photoStudio", authController.getPhoto)
+
+// E1. HOTEL
+
+router.get("/hotel", authController.getHotel)
+
+//CREAR PAGINA PARA CREAR UN LIBRO EN BD
+router.get("/dataProfileP", authController.createUser)
+// ENVIAR DATOS DE FORMULARIO PARA CREAR LIBRO EN BD post SOLO PARA FORMULARIOS
+router.post("/dataProfileP", authController.createUserForm)
+
+
+
 
 
 // 3. EXPORTACIÓN

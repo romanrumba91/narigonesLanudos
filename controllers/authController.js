@@ -3,6 +3,11 @@ const bcryptjs		= require("bcryptjs")
 const mongoose		= require("mongoose")
 
 const User			= require("./../models/User")
+const Estetica			= require("./../models/Estetica")
+const Photo			= require("./../models/Photo")
+const Hotel			= require("./../models/Hotel")
+const UserData		= require("./../models/UserData")
+
 
 exports.register = (req, res) => {
 
@@ -148,6 +153,93 @@ exports.logout = async (req, res) => {
 
 
 	})
+
+}
+
+exports.getEstetica = async (req, res) => {
+
+	try {
+	
+		const foundEstetica = await Estetica.find({})
+		console.log(foundEstetica)
+		
+		res.render("services/beautyShop", {
+			data: foundEstetica
+			
+		})
+
+	} catch (error) {
+		
+		console.log(error)
+
+	}	
+
+}
+
+exports.getPhoto = async (req, res) => {
+
+	try {
+	
+		const foundPhoto = await Photo.find({})
+		console.log(foundPhoto)
+		
+		res.render("services/photoStudio", {
+			data: foundPhoto
+			
+		})
+
+	} catch (error) {
+		
+		console.log(error)
+
+	}	
+
+}
+
+exports.getHotel = async (req, res) => {
+
+	try {
+	
+		const foundHotel = await Hotel.find({})
+		console.log(foundHotel)
+		
+		res.render("services/hotel", {
+			data: foundHotel
+			
+		})
+
+	} catch (error) {
+		
+		console.log(error)
+
+	}	
+
+}
+exports.createUser = async (req, res) => {
+
+	return res.render("profile/dataProfileP",{
+		data
+	})
+
+}
+
+
+exports.createUserForm = async (req, res) => {
+
+	// 1. VERIFICAR QUE LOS DATOS DEL FORMULARIO LLEGUEN AL SERVIDOR
+	const { name, address, country } = req.body
+	console.log(req.body)
+	// const title = req.body.title
+	
+	// 2. CREAR EL DOCUMENTO EN BASE DE DATOS
+	try {
+        //await Book.create({ title, description, author, rating })
+        await UserData.create({ name, address, country })
+        return res.redirect("/profile")//falta ponerl algo
+
+    }catch(error){
+        console.log(error)
+    }
 
 }
 

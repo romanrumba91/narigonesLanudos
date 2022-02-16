@@ -15,12 +15,31 @@ body{
     text-align: center;
     color: #fff;
 }
+
+.menu-barop{
+    background-color: white;
+    text-align: center;
+    color: black;
+}
 .menu-bar ul{
     display: inline-flex;
     list-style: none;
     color:WHITE
 }
+.menu-barop ul{
+    display: inline-flex;
+    list-style: none;
+    color:black
+}
 .menu-bar ul li{
+    width: 180px;
+    margin-left: 5px;
+    margin-right: 5px;
+    /* padding:10px; */
+    margin-top: 40px;
+    height: 60px;
+}
+.menu-barop ul li{
     width: 180px;
     margin-left: 5px;
     margin-right: 5px;
@@ -31,6 +50,11 @@ body{
 .menu-bar ul li a {
     text-decoration: none;
     color: white;
+    font-weight: bold;
+}
+.menu-barop ul li a {
+    text-decoration: none;
+    color: black;
     font-weight: bold;
 }
 /* .active, .menu-bar ul li:hover{
