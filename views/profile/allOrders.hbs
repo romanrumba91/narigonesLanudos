@@ -48,16 +48,40 @@
                     </div>
                   </div>
             </li>
+      </ul>
+            {{else}}
+            <ul role="list" class="space-y-12 sm:grid sm:grid-cols-1 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-1 lg:gap-x-8">
+            <div class="mensaje">
+              <div class="card mx-auto">
+                <div class="card-body">
+                  <p clsss="lead">There are not orders yet.</p>
+                  <br>
+                  
+                </div>
+              </div>  
+            </div>
+            <div class="btnMensaje">
+              <a href="/profile/:id/newOrder" class="btn btn-success btn-block">Create One!</a>
+            </div>
+            </ul>
+
+
         {{/each}}  
     </div>
   </div>
 </div>
+            <ul role="list" class="divide-y divide-gray-200">
+                <li class="findus">
+                  <center><p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl center"></p></center>
+                </li>
+            </ul>
+
 
 <footer class="bg-black">
   <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
     <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
       <div class="px-5 py-2">
-        <a href="#" class="text-base text-gray-500 hover:text-gray-900"> About </a>
+        <a href="/services/aboutUs" class="text-base text-gray-500 hover:text-gray-900"> About </a>
       </div>
 
     </nav>
