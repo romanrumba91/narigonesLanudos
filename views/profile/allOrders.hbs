@@ -2,46 +2,49 @@
 
         <ul>
 
-            <li><a href="/profile/dataProfileP">Profile</a></li>
+            <li><a href="/profile/:id/dataProfileP">Profile</a></li>
             <li><a href="/profile/allOrders">Orders</a></li>
             <li><a href="/profile/:id/newOrder">New Orders</a></li>
+            
 
     </div>
+    <hr color="blue" size=3>
 
 
 
-	<div class="background">
-  <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24"></div>
+<div class="background">
+  <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
     <div class="space-y-12">
       <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-        <center><h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl bold ">Available drones</h2></center>
-        <center><p class="text-xl text-gray-500">Select your favorite drone</p></center>
+        <center><h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl bold ">History Orders</h2></center>
       </div>
       <ul role="list" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
         {{#each allOrders }}
-		<li>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <div class="text-lg leading-6 font-medium space-y-1">
-                <h3>Breed : {{ breed }}</h3>
-                <p class="text-indigo-600">Owner Name:{{ ownerName }} </p>
-				        <p class="text-indigo-600">Dog Years : {{ dogYears }}</p>
-              </div>
-              <span class="relative z-0 inline-flex shadow-sm rounded-md gray"> 
-                  <form action="/profile/edit/{{_id}}" method="get">
-                    <button class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-700 hover:bg-teal-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"style="margin-left: 90px">Edit</button>				
-                  </form>
+            <li>
+                  <div class="space-y-4">
+                    <div class="aspect-w-3 aspect-h-2 bg-amber-400">
+                      <div class="text-lg leading-6 font-medium space-y-1">
+                        <h3>Breed : {{ breed }}</h3>
+                        <p class="text-indigo-600">Owner Name:{{ ownerName }} </p>
+                        <p class="text-indigo-600">Dog Years : {{ dogYears }}</p>
+                      </div>
+                      <br>
+                      <span class="relative z-0 inline-flex shadow-sm rounded-md gray"> 
+                          <form action="/profile/edit/{{_id}}" method="get">
+                            <button class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-black hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"style="margin-left: 90px">Edit</button>				
+                          </form>
 
-                  <form action="/profile/{{_id}}/delete" method="POST">
-                    <button class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-700 hover:bg-teal-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"style="margin-left: 40px">Delete</button>				
-                  </form>
+                          <form action="/profile/{{_id}}/delete" method="POST">
+                            <button class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-black  hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"style="margin-left: 40px">Delete</button>				
+                          </form>
 
-              </span> 
-            </div>
-          </div>
-    </li>
+                      </span> 
+                    </div>
+                  </div>
+            </li>
+        {{/each}}  
     </div>
-</div>
+  </div>
 </div>
 
-		{{/each}}
+		

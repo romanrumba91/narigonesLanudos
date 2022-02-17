@@ -216,33 +216,33 @@ exports.getHotel = async (req, res) => {
 	}	
 
 }
-exports.createUser = async (req, res) => {
+// exports.createUser = async (req, res) => {
 
-	return res.render("profile/dataProfileP",{
+// 	return res.render("profile/dataProfileP",{
 		
-	})
+// 	})
 
-}
+// }
 
 
-exports.createUserForm = async (req, res) => {
+// exports.createUserForm = async (req, res) => {
 
-	// 1. VERIFICAR QUE LOS DATOS DEL FORMULARIO LLEGUEN AL SERVIDOR
-	const { name, address, country } = req.body
-	console.log(req.body)
-	// const title = req.body.title
+// 	// 1. VERIFICAR QUE LOS DATOS DEL FORMULARIO LLEGUEN AL SERVIDOR
+// 	const { name, address, country } = req.body
+// 	console.log(req.body)
+// 	// const title = req.body.title
 	
-	// 2. CREAR EL DOCUMENTO EN BASE DE DATOS
-	try {
-        //await Book.create({ title, description, author, rating })
-        await UserData.create({ name, address, country })
-        return res.redirect("/profile")//falta ponerl algo
+// 	// 2. CREAR EL DOCUMENTO EN BASE DE DATOS
+// 	try {
+//         //await Book.create({ title, description, author, rating })
+//         await UserData.create({ name, address, country })
+//         return res.redirect("/profile")//falta ponerl algo
 
-    }catch(error){
-        console.log(error)
-    }
+//     }catch(error){
+//         console.log(error)
+//     }
 
-}
+// }
 
 exports.getDetails = async (req, res) => {
 
@@ -336,3 +336,68 @@ exports.deleteForm = async(req, res) => {
     res.redirect("/profile")
 }
 
+exports.createProfileP = async (req, res) => {
+
+    res.render("profile/dataProfileP")
+
+}
+
+exports.createProfilePForm = async (req, res) => {
+
+	const id = req.session.currentUser._id
+	// 1. VERIFICAR QUE LOS DATOS DEL FORMULARIO LLEGUEN AL SERVIDOR
+	// const { breed, ownerName, dogYears  } = req.body;
+
+	// // const title = req.body.title
+	
+	// // 2. CREAR EL DOCUMENTO EN BASE DE DATOS
+
+    //     //await Book.create({ title, description, author, rating })
+	// await NewOrders.findByIdAndUpdate(
+	// 	id,{ breed, ownerName, dogYears  },
+	// 		{new:true}
+
+	// )
+    //     return res.redirect("/profile")
+	const { name, address, country } = req.body;
+	const newprofileP = new UserData({ name, address, country })
+	newprofileP.foundUser = id;
+	if(name !== ''){
+		await newprofileP.save()
+		res.redirect("/profile")
+	}
+
+
+
+}
+
+exports.getEditProfile = async (req, res) => {
+
+    const {id}=req.params
+    const foundEditProfile = await UserData.findById(id)
+
+    res.render("profile/editProfileP", {foundEditProfile})
+
+}
+
+exports.getEditProfileForm = async (req, res) => {
+
+    //NECESITO EL ID DEL LIBRO PARA EDITAR
+    const {id} =req.params
+    //DATOS DEL FORMULARIO NUEVOS CON LOS CUALES VOY A ACTUALIZAR
+    const { name, address, country } = req.body
+    //actualizar base de datos
+    const updateEditProfile = await UserData.findByIdAndUpdate(
+        id,{ name, address, country },
+        {new:true}
+    )
+
+    // REDIRECCIONAR A LA PAGINA INDIVIDUAL DEL LIBRO
+        return res.redirect("/profile")
+}
+
+exports.getAboutUs = async (req, res) => {
+
+    res.render("services/aboutUs")
+
+}

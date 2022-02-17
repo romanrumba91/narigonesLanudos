@@ -15,6 +15,10 @@ const userDataSchema = mongoose.Schema({
 	country: {
 		type: String,
 	},
+	foundUser: {
+        type: String,
+        required: true
+    },
 })
 
 // 3. MODEL

@@ -35,9 +35,9 @@ router.get("/photoStudio", authController.getPhoto)
 router.get("/hotel", authController.getHotel)
 
 //CREAR PAGINA PARA CREAR UN LIBRO EN BD
-router.get("/dataProfileP", authController.createUser)
+router.get("/:id/dataProfileP", authController.createProfileP)
 // ENVIAR DATOS DE FORMULARIO PARA CREAR LIBRO EN BD post SOLO PARA FORMULARIOS
-router.post("/dataProfileP", authController.createUserForm)
+router.post("/:id/dataProfileP", authController.createProfilePForm)
 
 router.get("/dataProfileP/:userID", authController.getDetails)
 
@@ -53,6 +53,12 @@ router.get("/edit/:id",authController.getEditOrder)
 router.post("/:id/edit",authController.getEditForm)
 
 router.post("/:id/delete", authController.deleteForm)
+
+router.get("/:id/edit",authController.getEditProfile)
+
+router.post("/:id/edit",authController.getEditProfileForm)
+
+router.get("/aboutUs", authController.getAboutUs)
 
 
 
