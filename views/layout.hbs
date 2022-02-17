@@ -19,15 +19,16 @@
     <div class="menu-bar">
 
         <ul>
+            
             <img class ="imageLogo" src ="images/logo_N&L2.png ">
             <div class ="hover:bg-black">
                 <li <i class="bi-house-door-fill"></i><a href="/">Home</a></li>
             </div>
             <div class ="hover:bg-black">
-                <li><a href="/services/aboutUs">About us</a></li>
+                <li><i class="bi bi-clipboard-data"></i><a href="/services/aboutUs">About us</a></li>
             </div>
                 <div class ="hover:bg-black">
-                    <li><a href="#">Services</a>
+                    <li><i class="bi bi-archive"></i><a href="#">Services</a>
                 
                     <div class="sub-menu-1">
                         <ul>
@@ -39,12 +40,12 @@
                     </li>
                 </div>
                 <div class ="hover:bg-black">
-                    <li><a href="#">Location</a></li>
+                    <li><i class="bi bi-globe"></i><a href="/services/location">Location</a></li>
                 </div>
 
                 {{#if currentUser}}
                 <span class="textUsuario">
-                    Hola {{ currentUser.username }}
+                    Hello {{ currentUser.username }}
                 </span>
 
                 
@@ -53,9 +54,13 @@
                     <li><a href="#"><i class="bi bi-person-fill"></i>Account</a>
                         <div class="sub-menu-1">
                             <ul>
+                            <li><a href="/profile">Profile</a></li>
                             <li><a href="/auth/logout">Log out</a></li>
                             </ul>
                         </div>
+
+                            
+
                     </li>
                 </div>
 
@@ -77,7 +82,7 @@
                 </div>
 
                 {{/if}}
-
+            
         </ul>
     </div>
 

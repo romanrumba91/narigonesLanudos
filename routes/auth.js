@@ -60,6 +60,8 @@ router.post("/:id/edit",authController.getEditProfileForm)
 
 router.get("/aboutUs", authController.getAboutUs)
 
+router.get("/location", authController.getlocation)
+
 
 
 

@@ -286,8 +286,9 @@ exports.createOrderForm = async (req, res) => {
 
 	// )
     //     return res.redirect("/profile")
-	const { breed, ownerName, dogYears  } = req.body;
-	const newOrderD = new NewOrders({ breed, ownerName, dogYears  })
+	const { breed, ownerName, dogYears, typeofService } = req.body;
+	const newOrderD = new NewOrders({ breed, ownerName, dogYears, typeofService })
+	console.log(newOrderD)
 	newOrderD.foundUser = id;
 	await newOrderD.save()
 	res.redirect("/profile")
@@ -315,10 +316,10 @@ exports.getEditForm = async (req, res) => {
     //NECESITO EL ID DEL LIBRO PARA EDITAR
     const {id} =req.params
     //DATOS DEL FORMULARIO NUEVOS CON LOS CUALES VOY A ACTUALIZAR
-    const { breed, ownerName, dogYears  } = req.body
+    const { breed, ownerName, dogYears, typeofService  } = req.body
     //actualizar base de datos
     const updateOrders = await NewOrders.findByIdAndUpdate(
-        id,{ breed, ownerName, dogYears  },
+        id,{ breed, ownerName, dogYears, typeofService  },
         {new:true}
     )
 
@@ -399,5 +400,10 @@ exports.getEditProfileForm = async (req, res) => {
 exports.getAboutUs = async (req, res) => {
 
     res.render("services/aboutUs")
+
+}
+exports.getlocation = async (req, res) => {
+
+    res.render("services/location")
 
 }

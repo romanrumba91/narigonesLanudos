@@ -1,58 +1,53 @@
-    <div class="menu-barop">
-
-        <ul>
-
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/profile/allOrders">Orders</a></li>
-            <li><a href="/profile/:id/newOrder">New Orders</a></li>
-            
-
+<ul role="list" class="divide-y divide-gray-200">
+  <li class="findus">
+    <center><p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl center">Find us.</p></center>
+  </li>
+</ul>
+<div class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-1 sm:gap-x-6 lg:gap-8">
+    
+    <div class="location">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.7671097320613!2d-99.06679348461232!3d19.465605344667306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fb428841ae0b%3A0xf6fbd05071c52b17!2sEst%C3%A9tica%20Canina%20Narigones%20y%20Lanudos!5e0!3m2!1sen!2smx!4v1645111808227!5m2!1sen!2smx" width="600" height="550" style="border:0;"  allowfullscreen="" loading="lazy"></iframe>
     </div>
-    <hr color="blue" size=3>
 
-
-
-<div class="background">
-  <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
-    <div class="space-y-12">
-      <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-        <center><h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl bold ">History Orders</h2></center>
-      </div>
-      <ul role="list" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
-        {{#each allOrders }}
-            <li>
-                  <div class="space-y-4">
-                    <div class ="stickers">
-                    <div class="aspect-w-3 aspect-h-2 bg-gray-500">
-                      
-                      <div class="text-lg leading-6 font-medium space-y-1 ">
-                        <div class="modlett">
-                        <h3>Breed : {{ breed }}</h3>
-                        <p class="text-black">Owner Name:{{ ownerName }} </p>
-                        <p class="text-black">Dog Years : {{ dogYears }}</p>
-                        <p class="text-black">Type of Service : {{ typeofService}}</p>
-                        </div>
-                      </div>
-                      </div>
-                      <br>
-                      <span class="relative z-0 inline-flex shadow-sm rounded-md gray"> 
-                          <form action="/profile/edit/{{_id}}" method="get">
-                            <button class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-black hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"style="margin-left: 90px">Edit</button>				
-                          </form>
-
-                          <form action="/profile/{{_id}}/delete" method="POST">
-                            <button class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-black  hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"style="margin-left: 40px">Delete</button>				
-                          </form>
-
-                      </span> 
+    <div class="card-group">
+        <div class="card">
+            <div class = "borderLoca">
+                <img class="photoLocation" src="https://www.pngkey.com/png/full/48-480788_location-pin-icon-pointer-google-vector-graphics.png" alt="Card image cap">
+                <div class="card-body">
+                    <div class = "font">
+                        <h5 class="card-title">Address</h5>
+                        <p> Sec, C. 1541 #33, San Juan de Aragón VI Secc, Gustavo A. Madero, 07918 Ciudad de México, CDMX </p>
                     </div>
-                  </div>
-            </li>
-        {{/each}}  
-    </div>
-  </div>
-</div>
+                        <div class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-1 sm:gap-x-6 lg:gap-8">
+                            <div class ="contacto">
+                                <center><i class="bi bi-telephone-fill"></i><p>5547688883</p></center>
+                                <div class="tel">
+                                      
+                                </div>
 
+                                
+                            </div>
+                             <div class ="contactoemail">
+                                <center><i class="bi bi-envelope"></i><p>contacto@narigonesylanudos.com</p></center>
+                             </div>
+
+
+                                
+                        </div>
+                        
+                        
+                        
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+<br><br><br><br>
 <footer class="bg-black">
   <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
     <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
@@ -79,5 +74,3 @@
     <p class="mt-8 text-center text-base text-gray-400">&copy; 2022 Narigones y Lanudos, Inc. All rights reserved.</p>
   </div>
 </footer>
-
-		

@@ -15,6 +15,9 @@ const newOrderSchema = mongoose.Schema({
 	dogYears: {
 		type: Number,
 	},
+	typeofService: {
+		type:String,
+	},
     foundUser: {
         type: String,
         required: true
