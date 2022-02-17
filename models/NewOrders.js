@@ -15,7 +15,7 @@ const newOrderSchema = mongoose.Schema({
 	dogYears: {
 		type: Number,
 	},
-    user: {
+    foundUser: {
         type: String,
         required: true
     },

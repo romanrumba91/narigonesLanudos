@@ -7,8 +7,6 @@ const hbs			= require("hbs")
 
 const connectDB			= require("./config/db")
 const sessionManager 	= require("./config/session")
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 
 
 // 2. MIDDLEWARES
@@ -23,8 +21,7 @@ app.set("views", __dirname + "/views")
 app.set("view engine", "hbs")
 
 app.use(express.urlencoded({ extended: true }))
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 // 3. RUTEO
 // LAYOUT MIDDLEWARE

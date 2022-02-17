@@ -46,7 +46,13 @@ router.get("/:id/newOrder", authController.createOrder)
 
 router.post("/:id/newOrder", authController.createOrderForm)
 //GET ALL ORDERS
-router.get("/orders",authController.getAllOrders)
+router.get("/allOrders",authController.getAllOrders)
+
+router.get("/edit/:id",authController.getEditOrder)
+
+router.post("/:id/edit",authController.getEditForm)
+
+router.post("/:id/delete", authController.deleteForm)
 
 
 

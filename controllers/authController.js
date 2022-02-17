@@ -271,28 +271,68 @@ exports.createOrder = async (req, res) => {
 
 exports.createOrderForm = async (req, res) => {
 
-	const id = currentUser._id
+	const id = req.session.currentUser._id
 	// 1. VERIFICAR QUE LOS DATOS DEL FORMULARIO LLEGUEN AL SERVIDOR
-	const { breed, ownerName, dogYears  } = req.body;
+	// const { breed, ownerName, dogYears  } = req.body;
 
-	// const title = req.body.title
+	// // const title = req.body.title
 	
-	// 2. CREAR EL DOCUMENTO EN BASE DE DATOS
+	// // 2. CREAR EL DOCUMENTO EN BASE DE DATOS
 
-        //await Book.create({ title, description, author, rating })
-	await NewOrders.findByIdAndUpdate(
-		id,{ breed, ownerName, dogYears  },
-			{new:true}
+    //     //await Book.create({ title, description, author, rating })
+	// await NewOrders.findByIdAndUpdate(
+	// 	id,{ breed, ownerName, dogYears  },
+	// 		{new:true}
 
-	)
-        return res.redirect("/profile")
+	// )
+    //     return res.redirect("/profile")
+	const { breed, ownerName, dogYears  } = req.body;
+	const newOrderD = new NewOrders({ breed, ownerName, dogYears  })
+	newOrderD.foundUser = id;
+	await newOrderD.save()
+	res.redirect("/profile")
 
 
 }
 
 exports.getAllOrders = async (req, res) => {
-	const {id}=req.params
-	const allOrders = await NewOrders.find(id)
+	const id = req.session.currentUser._id
+	const allOrders = await NewOrders.find({foundUser: id})
 	res.render('profile/allOrders',{allOrders})
+}
+
+exports.getEditOrder = async (req, res) => {
+
+    const {id}=req.params
+    const foundEdit = await NewOrders.findById(id)
+
+    res.render("profile/editOrder", {foundEdit})
+
+}
+
+exports.getEditForm = async (req, res) => {
+
+    //NECESITO EL ID DEL LIBRO PARA EDITAR
+    const {id} =req.params
+    //DATOS DEL FORMULARIO NUEVOS CON LOS CUALES VOY A ACTUALIZAR
+    const { breed, ownerName, dogYears  } = req.body
+    //actualizar base de datos
+    const updateOrders = await NewOrders.findByIdAndUpdate(
+        id,{ breed, ownerName, dogYears  },
+        {new:true}
+    )
+
+    // REDIRECCIONAR A LA PAGINA INDIVIDUAL DEL LIBRO
+        return res.redirect('/profile')
+}
+
+exports.deleteForm = async(req, res) => {
+
+    //NECESITO EL ID DEL LIBRO PARA EDITAR
+    const {id} =req.params
+    //DATOS DEL FORMULARIO NUEVOS CON LOS CUALES VOY A ACTUALIZAR
+    //const deleteBook = await Book.findByIdAndDelete(bookID)
+    await NewOrders.findByIdAndDelete(id)
+    res.redirect("/profile")
 }
 
