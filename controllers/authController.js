@@ -1,7 +1,6 @@
 // ./controllers/authController
 const bcryptjs		= require("bcryptjs")
 const mongoose		= require("mongoose")
-
 const User			= require("./../models/User")
 const Estetica			= require("./../models/Estetica")
 const Photo			= require("./../models/Photo")
