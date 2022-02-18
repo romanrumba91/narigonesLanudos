@@ -20,7 +20,11 @@ const userSchema = mongoose.Schema({
 	password: {
 		type: String,
 		required: true
-	}
+	},
+	confirmpassword: {
+		type: String,
+		required: true
+	},
 }, 	{
 		timestamps: true // Guardar la fecha y hora en la cual se creó un documento
 	}

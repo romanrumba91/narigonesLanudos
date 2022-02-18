@@ -19,7 +19,7 @@ exports.register = (req, res) => {
 exports.registerForm = async (req, res) => {
 
 	// 1. VERIFICAR QUE LOS DATOS DEL FORMULARIO LLEGUEN AL CONTROLLER
-	const { username, email, password } = req.body
+	const { username, email, password, confirmpassword } = req.body
 
 
 	// --- VALIDACIONES ---
@@ -42,6 +42,12 @@ exports.registerForm = async (req, res) => {
 
 	}
 
+	if(password != confirmpassword){
+		return res.render("auth/register", {
+			errorMessage: "Las contraseñas no coinciden."
+		})
+	}
+
 
 
 	// 2. ENCRIPTAR CONTRASEÑA
@@ -57,7 +63,9 @@ exports.registerForm = async (req, res) => {
 		const newUser = await User.create({
 			username,
 			email, 
-			password: hashedPassword
+			password: hashedPassword,
+			confirmpassword
+
 		})
 	
 		console.log(newUser)
