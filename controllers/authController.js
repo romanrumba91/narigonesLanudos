@@ -67,15 +67,12 @@ exports.registerForm = async (req, res) => {
 
 		})
 	
-		console.log(newUser)
+		
 	
 		return res.redirect("/profile")
 
 	} catch (error) {
 		
-		// console.log(error)
-
-		// console.log(error.errors)
 
 		// CONFIRMAR SI EL ERROR VIENE DE BASE DE DATOS
 		if (error instanceof mongoose.Error.ValidationError){
@@ -101,7 +98,6 @@ exports.login = (req, res) => {
 
 exports.loginForm = async (req, res) => {
 
-	console.log(req.body)
 
 	// 1. OBTENCIÓN DE DATOS DEL FORMULARIO
 	const { email, password } = req.body
@@ -153,7 +149,6 @@ exports.logout = async (req, res) => {
 	req.session.destroy((error) => {
 
 		if(error){
-			console.log(error)
 			return
 		}
 
@@ -169,7 +164,6 @@ exports.getEstetica = async (req, res) => {
 	try {
 	
 		const foundEstetica = await Estetica.find({})
-		console.log(foundEstetica)
 		
 		res.render("services/beautyShop", {
 			data: foundEstetica
@@ -178,7 +172,6 @@ exports.getEstetica = async (req, res) => {
 
 	} catch (error) {
 		
-		console.log(error)
 
 	}	
 
@@ -189,7 +182,7 @@ exports.getPhoto = async (req, res) => {
 	try {
 	
 		const foundPhoto = await Photo.find({})
-		console.log(foundPhoto)
+
 		
 		res.render("services/photoStudio", {
 			data: foundPhoto
@@ -198,7 +191,7 @@ exports.getPhoto = async (req, res) => {
 
 	} catch (error) {
 		
-		console.log(error)
+		return
 
 	}	
 
@@ -209,7 +202,7 @@ exports.getHotel = async (req, res) => {
 	try {
 	
 		const foundHotel = await Hotel.find({})
-		console.log(foundHotel)
+
 		
 		res.render("services/hotel", {
 			data: foundHotel
@@ -218,7 +211,7 @@ exports.getHotel = async (req, res) => {
 
 	} catch (error) {
 		
-		console.log(error)
+		return
 
 	}	
 
