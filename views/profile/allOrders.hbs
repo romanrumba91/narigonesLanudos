@@ -17,7 +17,7 @@
 <div class="background">
   <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
     <div class="space-y-12">
-      <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+      <div class="space-y-5 sm:space-y-4 md:max-w-full lg:max-w-full xl:max-w-full">
         <center><h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl bold ">History Orders</h2></center>
       </div>
       <ul role="list" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
@@ -50,25 +50,40 @@
                     </div>
                   </div>
             </li>
+      
                       {{else}}
             
-            <div class="mensaje">
-              <div class="card mx-auto">
-                <div class="card-body">
-                  <p clsss="lead">There are not orders yet.</p>
-                  <br>
-                              <div class="btnMensaje">
-              <a href="/profile/:id/newOrder" class="btn btn-success btn-block">Create One!</a>
-            </div>
-                </div>
-              </div>  
-            </div>
+            {{!-- <div class="mensaje"> --}}
+              {{!-- <div class="card mx-auto"> --}}
+                {{!-- <div class="card-body"> --}}
+      </ul>
 
+      <ul role="list" class="space-y-12 grid-cols-1">
+        <div class="space-y-5 sm:space-y-4 md:max-w-full lg:max-w-full xl:max-w-full">
+          <center><h2 class="text-base font-extrabold tracking-tight ">There are not orders yet.</h2></center>
+        </div>
+      </ul>
+      <div class="btnMensaje">
+      <ul role="list" class="space-y-8 grid-cols-1">
+        <div class="space-y-5 sm:space-y-4 md:max-w-full lg:max-w-full xl:max-w-full">
+          <center><a href="/profile/:id/newOrder" class="text-base font-extrabold tracking-tight">Create One!</a></center>
+        </div>
+      </ul>
       
 
-            
 
-
+                  {{!-- <div >
+                  <center><p class="text-base font-extrabold tracking-tight sm:text-4xl bold">There are not orders yet.</p></center>
+                  </div> --}}
+                  <br>
+            {{!-- <div class="btnMensaje"> --}}
+              {{!-- <ul role="list" class="space-y-12 grid-cols-1"></ul>
+                  <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+              <center><a href="/profile/:id/newOrder" class="text-base font-extrabold tracking-tight">Create One!</a></center>
+                  </div>
+              </ul> --}}
+            {{!-- </div> --}}
+              {{!-- </div> --}}
         {{/each}}  
     </div>
   </div>
