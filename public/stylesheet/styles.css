@@ -165,10 +165,13 @@ body{
 
 
 .location{
-  margin-left: 50px;
+  /* margin-left: 50px; */
   margin-top: 80px;
   width: 600px;
   height: 550px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 .findus{
@@ -210,6 +213,9 @@ body{
   height: 550px;
   /* background-color: rgb(82, 89, 129); */
   /* border-radius: 50%; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   
 }
 
