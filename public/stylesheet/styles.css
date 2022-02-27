@@ -162,11 +162,13 @@ body{
   width: 500px;
 }
 
+
 .location{
-  margin-left: 250px;
+  margin-left: 50px;
   margin-top: 80px;
   width: 600px;
   height: 550px;
+
 }
 .findus{
   margin-top: 30px;
@@ -346,19 +348,19 @@ body{
 
   }
   
-  .location{
+  /* .location{
     margin-left: 10px;
     margin-top: 50px;
     margin-right: 10px;
     width: 365px;
     height: 550px;
-  }
+  } */
   .findus{
     margin-top: 30px;
 
   }
   
-  .photoLocation{
+  /* .photoLocation{
     display: none;
 
   }
@@ -368,7 +370,7 @@ body{
     display: none;
 
 
-  }
+  } */
   .homeimg{
     max-width: auto;
     height: 200px;
@@ -381,12 +383,13 @@ body{
 
   }
 
-  .loc{
+  /* .loc{
     display: block;
     margin-left: auto;
     margin-right: auto;
 
-  }
+
+  } */
   .order{
     height: 200px;
     width: 300px;
@@ -451,6 +454,41 @@ body{
     color: black;
     font-weight: bold;
   }
+}
+
+@media screen and (max-width: 1300px) {
+
+    .photoLocation{
+        display: none;
+    
+      }
+    
+      .borderLoca{
+    
+        display: none;
+    
+    
+      }
+
+      .location{
+
+        margin-top: 50px;
+
+        /* width: 365px;
+        height: 550px; */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
+      }
+
+      /* .loc{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    
+    
+      } */
 }
 
 
