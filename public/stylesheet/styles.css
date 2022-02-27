@@ -46,7 +46,14 @@ body{
 
 
 
+
   
+}
+
+.homeimg{
+  height: 400px;
+  width: 500px;
+  margin-left: 700px;
 }
 .imageLogo{
 
@@ -337,7 +344,8 @@ body{
   .location{
     margin-left: 10px;
     margin-top: 50px;
-    width: 510px;
+    margin-right: 10px;
+    width: 465px;
     height: 550px;
   }
   .findus{
@@ -356,11 +364,17 @@ body{
 
 
   }
+  .homeimg{
+    height: 300px;
+    width: 350px;
+    margin-left: 70px;
+
+  }
   .order{
     height: 200px;
     width: 300px;
     margin-top: 10px;
-    margin-left: 70px;
+    margin-left: 40px;
   }
   .mensaje{
     color: black;
@@ -379,10 +393,10 @@ body{
     font-weight: bold;
   }
   .order2{
-    height: 400px;
-    width: 400px;
+    height: 200px;
+    width: 200px;
     margin-top: 30px;
-    margin-left: 60px;
+    margin-left: 40px;
   }
   .benefits{
     margin-left: 50px;
